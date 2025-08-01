@@ -1,0 +1,65 @@
+# Generic project structure configuration
+# This is a generic example - customize for your specific project needs
+
+root_dir: "src"
+
+# Define your project hierarchy (customize these levels)
+levels:
+  - "module"     # Top-level modules (frontend, backend, shared)
+  - "service"    # Service types (api, web, worker, etc.)
+  - "component"  # Individual components
+
+max_depth: 3
+check_depth: true
+allow_subdirs: true
+respect_gitignore: true
+
+# Customize these values for your project structure
+valid_values:
+  module:
+    - "frontend"
+    - "backend"
+    - "shared"
+    - "common"
+  service:
+    - "api"
+    - "web"
+    - "worker"
+    - "database"
+    - "cache"
+  component:
+    - "*"  # Allow any component name
+
+# Files that must exist in each component
+mandatory_files:
+  - "package.json"
+  - "index.js"
+
+# Recommended files
+optional_files:
+  - "README.md"
+  - "test.js"
+  - "config.json"
+
+# Directories to skip
+skip_dirs:
+  - "node_modules"
+  - "dist"
+  - "build"
+  - ".git"
+  - "__pycache__"
+  - "coverage"
+
+# File patterns to skip
+skip_files:
+  - ".DS_Store"
+  - "*.log"
+  - "*.tmp"
+
+# Validation behavior
+fail_on_missing_files: true
+fail_on_invalid_structure: true
+fail_on_invalid_values: false
+
+# Output settings
+log_level: "warn"

@@ -1,0 +1,11 @@
+# Basic pre-commit configuration with custom config file
+# Uses a specific directory checker configuration file
+
+repos:
+  - repo: https://github.com/nitinnbisht/dir-checker
+    rev: v1.0.0
+    hooks:
+      - id: dir-checker
+        args:
+          - --config=dir-checker-config.yaml
+          - --verbose
