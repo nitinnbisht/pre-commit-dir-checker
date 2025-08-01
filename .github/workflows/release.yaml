@@ -1,9 +1,10 @@
 name: Release Please
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  # Remove automatic push trigger - only manual releases
+  # push:
+  #   branches:
+  #     - main
 
 permissions:
   contents: write
@@ -18,5 +19,5 @@ jobs:
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: terraform-module
+          release-type: python
           skip-labeling: true
