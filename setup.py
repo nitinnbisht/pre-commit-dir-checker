@@ -10,7 +10,7 @@ setup(
     author_email='',
     url='https://github.com/nitinnbisht/dir-checker',
     packages=find_packages(),
-    python_requires='>=3.6',
+    python_requires='>=3.11',
     install_requires=[],
     entry_points={
         'console_scripts': [
@@ -24,12 +24,9 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
         'Topic :: Software Development :: Quality Assurance',
         'Topic :: Software Development :: Version Control',
         'Topic :: Software Development :: Libraries :: Python Modules',
