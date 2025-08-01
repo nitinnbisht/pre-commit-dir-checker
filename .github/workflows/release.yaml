@@ -1,10 +1,9 @@
 name: Release Please
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
-  # Remove automatic push trigger - only manual releases
-  # push:
-  #   branches:
-  #     - main
 
 permissions:
   contents: write
