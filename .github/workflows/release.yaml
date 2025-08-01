@@ -18,4 +18,5 @@ jobs:
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: python
+          release-type: simple
+          skip-labeling: true
