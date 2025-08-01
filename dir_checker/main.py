@@ -591,6 +591,13 @@ def create_default_config_file(filename: Optional[str] = None) -> None:
     
     if config_path.suffix.lower() in ['.yaml', '.yml']:
         # Create YAML file manually
+        levels_yaml = '\n'.join(f'  - "{level}"' for level in config.levels)
+        valid_values_yaml = '\n'.join(f'  {level}:\n' + '\n'.join(f'    - "{value}"' for value in values) for level, values in config.valid_values.items())
+        mandatory_files_yaml = '\n'.join(f'  - "{file}"' for file in config.mandatory_files)
+        optional_files_yaml = '\n'.join(f'  - "{file}"' for file in config.optional_files)
+        skip_dirs_yaml = '\n'.join(f'  - "{dir}"' for dir in sorted(config.skip_dirs))
+        skip_files_yaml = '\n'.join(f'  - "{file}"' for file in sorted(config.skip_files))
+        
         yaml_content = f"""# Repository Structure Validation Configuration
 # This file configures the pre-commit hook for validating directory structure
 # 
@@ -606,7 +613,7 @@ root_dir: "{config.root_dir}"
 # Define the hierarchy levels in your project structure
 # Example: module -> service -> component (adjust as needed)
 levels:
-{chr(10).join(f'  - "{level}"' for level in config.levels)}
+{levels_yaml}
 
 max_depth: {config.max_depth}
 check_depth: {str(config.check_depth).lower()}
@@ -616,23 +623,23 @@ respect_gitignore: {str(config.respect_gitignore).lower()}
 # Valid values for each level (customize for your project)
 # Use "*" to allow any name, or "prefix*" for prefix matching
 valid_values:
-{chr(10).join(f'  {level}:{chr(10)}{chr(10).join(f"    - \"{value}\"" for value in values)}' for level, values in config.valid_values.items())}
+{valid_values_yaml}
 
 # Files that must exist in each component directory
 mandatory_files:
-{chr(10).join(f'  - "{file}"' for file in config.mandatory_files)}
+{mandatory_files_yaml}
 
 # Files that are recommended but not required
 optional_files:
-{chr(10).join(f'  - "{file}"' for file in config.optional_files)}
+{optional_files_yaml}
 
 # Directories to skip during validation
 skip_dirs:
-{chr(10).join(f'  - "{dir}"' for dir in sorted(config.skip_dirs))}
+{skip_dirs_yaml}
 
 # File patterns to skip
 skip_files:
-{chr(10).join(f'  - "{file}"' for file in sorted(config.skip_files))}
+{skip_files_yaml}
 
 # Validation settings
 fail_on_missing_files: {str(config.fail_on_missing_files).lower()}
