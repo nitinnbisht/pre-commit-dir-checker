@@ -1,0 +1,73 @@
+# Terraform Infrastructure Repository Configuration
+# Example configuration for Infrastructure as Code repositories
+
+root_dir: "live"
+
+levels:
+  - "environment"
+  - "service"
+  - "region"
+  - "component"
+
+max_depth: 4
+check_depth: false
+allow_subdirs: true
+respect_gitignore: true
+
+# Valid values for each level
+valid_values:
+  environment:
+    - "dev"
+    - "prd"
+    - "sandbox*"
+  service:
+    - "networking"
+    - "compute"
+    - "storage"
+    - "security"
+    - "monitoring"
+    - "backup"
+  region:
+    - "eu-north-1"
+    - "eu-central-1"
+    - "us-east-1"
+    - "global"
+  component:
+    - "*"
+
+# Mandatory files in each component directory
+mandatory_files:
+  - "backend.tf"
+  - "versions.tf"
+
+# Optional files (for reporting)
+optional_files:
+  - "providers.tf"
+  - "outputs.tf"
+  - "variables.tf"
+  - "main.tf"
+
+# Directories to skip during validation
+skip_dirs:
+  - ".git"
+  - ".mypy_cache"
+  - ".pytest_cache"
+  - ".terraform"
+  - "__pycache__"
+  - "node_modules"
+  - "sandbox"
+  - "terraform.tfstate.d"
+
+# File patterns to skip
+skip_files:
+  - ".terraform.lock.hcl"
+  - "terraform.tfstate"
+  - "terraform.tfstate.backup"
+
+# Validation settings
+fail_on_missing_files: true
+fail_on_invalid_structure: true
+fail_on_invalid_values: false
+
+# Logging settings  
+log_level: warn

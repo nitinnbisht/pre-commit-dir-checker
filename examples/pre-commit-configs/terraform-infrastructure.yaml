@@ -1,0 +1,12 @@
+# Pre-commit configuration for Terraform/Infrastructure projects
+# Uses Terraform-specific directory checker configuration with strict validation
+
+repos:
+  - repo: https://github.com/nitinnbisht/dir-checker
+    rev: v1.0.0
+    hooks:
+      - id: dir-checker
+        args:
+          - --config=examples/directory-configs/terraform-infrastructure-config.yaml
+          - --strict
+          - --log-level=warn

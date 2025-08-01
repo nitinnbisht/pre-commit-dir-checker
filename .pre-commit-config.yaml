@@ -1,0 +1,13 @@
+repos:
+  - repo: local
+    hooks:
+      - id: dir-checker
+        name: Directory Structure Validator
+        entry: python -m dir_checker
+        language: python
+        always_run: true
+        pass_filenames: false
+        args:
+          - --config=dir-checker-config.yaml
+          - --verbose
+          - --log-level=warn

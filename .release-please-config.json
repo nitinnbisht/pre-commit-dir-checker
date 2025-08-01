@@ -1,0 +1,17 @@
+{
+  "release-type": "python",
+  "packages": {
+    ".": {
+      "package-name": "dir-checker",
+      "component": "dir-checker"
+    }
+  },
+  "changelog-sections": [
+    {"type": "feat", "section": "Features"},
+    {"type": "fix", "section": "Bug Fixes"},
+    {"type": "chore", "section": "Miscellaneous", "hidden": false},
+    {"type": "docs", "section": "Documentation", "hidden": false},
+    {"type": "test", "section": "Tests", "hidden": false},
+    {"type": "refactor", "section": "Code Refactoring", "hidden": false}
+  ]
+}

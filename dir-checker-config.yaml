@@ -1,0 +1,70 @@
+# Repository Structure Validation Configuration
+# This file configures the pre-commit hook for validating directory structure
+# 
+# This is a generic example configuration. Customize it for your project:
+# - Change root_dir to your main source directory
+# - Modify levels to match your project structure
+# - Update valid_values to reflect your naming conventions
+# - Set mandatory_files to files required in each component
+# - Configure optional_files for recommended files
+
+root_dir: "."
+
+# Define the hierarchy levels in your project structure
+# Example: module -> service -> component (adjust as needed)
+levels:
+  - "module"
+  - "service"
+  - "component"
+
+max_depth: 3
+check_depth: false
+allow_subdirs: true
+respect_gitignore: true
+
+# Valid values for each level (customize for your project)
+# Use "*" to allow any name, or "prefix*" for prefix matching
+valid_values:
+  module:
+    - "dir_checker"
+    - "tests"
+    - "examples"
+    - ".github"
+  service:
+    - "*"  # Allow any subdirectory
+  component:
+    - "*"
+
+# Files that must exist in each component directory
+mandatory_files:
+  - "__init__.py"
+
+# Files that are recommended but not required
+optional_files:
+  - "__main__.py"
+  - "py.typed"
+
+# Directories to skip during validation
+skip_dirs:
+  - ".git"
+  - ".mypy_cache"
+  - ".pytest_cache"
+  - "__pycache__"
+  - "build"
+  - "coverage"
+  - "dist"
+  - "node_modules"
+
+# File patterns to skip
+skip_files:
+  - "*.log"
+  - "*.tmp"
+  - ".DS_Store"
+
+# Validation settings
+fail_on_missing_files: true
+fail_on_invalid_structure: true
+fail_on_invalid_values: false
+
+# Logging settings  
+log_level: warn
