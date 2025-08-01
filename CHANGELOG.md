@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.0.0 (2025-08-01)
+
+
+### Features
+
+* Initial release of dir-checker ([#1](https://github.com/nitinnbisht/pre-commit-dir-checker/issues/1)) ([78ad02d](https://github.com/nitinnbisht/pre-commit-dir-checker/commit/78ad02d79cb62c5c39051c34f0bbe7262893a6ad))
+
+
+### Bug Fixes
+
+* update release type to simple and enable skip labeling ([be5c9b5](https://github.com/nitinnbisht/pre-commit-dir-checker/commit/be5c9b531f795904e14d20cdb6ac77aa32e512b4))
+
 ## [Unreleased]
 
 ## [1.0.0] - 2025-08-01
